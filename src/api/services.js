@@ -36,3 +36,8 @@ export async function updateProduct(sku, product) {
   const res = await apiClient.put(`/products/admin/${sku}`, product);
   return res.data;
 }
+
+export async function deleteProduct(sku) {
+  const res = await apiClient.delete(`/products/admin/${sku}`);
+  return res.data;
+}
