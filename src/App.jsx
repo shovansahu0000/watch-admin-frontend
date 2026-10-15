@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
 import Brands from './pages/Brands';
+import Coupons from './pages/Coupons';
 import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Products />} />
           <Route path="brands" element={<Brands />} />
+          <Route path="coupons" element={<Coupons />} />
         </Route>
       </Routes>
     </BrowserRouter>

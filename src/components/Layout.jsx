@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Watch, Tag, LogOut, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { LayoutDashboard, Watch, Tag, TicketPercent, LogOut, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../store/authSlice';
 import apiClient from '../api/axiosClient';
@@ -12,7 +12,7 @@ export default function Layout() {
 
   const handleLogout = async () => {
     try {
-      await apiClient.post('/auth/logout');
+      await apiClient.post('/auth/admin/logout');
     } catch (e) {
       console.error(e);
     } finally {
@@ -60,6 +60,15 @@ export default function Layout() {
         >
           <Tag size={20} style={{ flexShrink: 0 }} />
           <span className="nav-item-text">Brands</span>
+        </NavLink>
+
+        <NavLink 
+          to="/coupons" 
+          className={({ isActive }) => `btn nav-item ${isActive ? 'active' : ''}`}
+          title={isCollapsed ? "Coupons" : ""}
+        >
+          <TicketPercent size={20} style={{ flexShrink: 0 }} />
+          <span className="nav-item-text">Coupons</span>
         </NavLink>
         
         <div style={{ flex: 1 }} />

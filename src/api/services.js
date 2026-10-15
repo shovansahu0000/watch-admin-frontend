@@ -41,3 +41,25 @@ export async function deleteProduct(sku) {
   const res = await apiClient.delete(`/products/admin/${sku}`);
   return res.data;
 }
+
+// Coupons
+export async function getCoupons() {
+  const res = await apiClient.get('/coupons/admin');
+  return res.data.data.coupons;
+}
+
+export async function createCoupon(coupon) {
+  const res = await apiClient.post('/coupons/admin', coupon);
+  return res.data;
+}
+
+export async function updateCoupon(id, coupon) {
+  const res = await apiClient.put(`/coupons/admin/${id}`, coupon);
+  return res.data;
+}
+
+export async function deleteCoupon(id) {
+  const res = await apiClient.delete(`/coupons/admin/${id}`);
+  return res.data;
+}
+
